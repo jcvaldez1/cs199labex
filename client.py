@@ -4,7 +4,6 @@ import time
 
 def main():
     open("./message_back.txt","w").close()
-    #for x in range(0,150):
     while 1:
         soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         soc.settimeout(10)

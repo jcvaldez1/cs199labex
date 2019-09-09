@@ -5,7 +5,7 @@ import time
 from select import select
 
 host = ''
-tcp_port = int(sys.argv[2])
+tcp_port = 42000
 client_count = 50
 
 s_tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
