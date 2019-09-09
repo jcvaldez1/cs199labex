@@ -27,7 +27,7 @@ from ryu.lib import hub
 from ryu.lib.packet.ether_types import *
 from ryu.lib.packet.in_proto import *
 # CUSTOM CONFIG
-from default import *
+import default
 #from ryu.cfg import CONF
 
 class Rerouter(learning_switch.SimpleSwitch13):
