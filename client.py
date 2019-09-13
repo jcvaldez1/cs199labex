@@ -9,6 +9,10 @@ def main():
         soc.settimeout(10)
         host = "10.0.0.2"
         port = 42000
+        try:
+            port = sys.argv[1]
+        except:
+            pass
 
         try:
             soc.connect((host, port))

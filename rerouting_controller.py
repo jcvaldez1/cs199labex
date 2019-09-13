@@ -44,6 +44,7 @@ class Rerouter(learning_switch.SimpleSwitch13):
                 NOTE: THE DEFAULT CONFIG FILE IS PLACED HERE
                       WHICH ENABLES EDITING DURING RUN TIME
             '''
+            print(str(self.datapaths))
             for dp_id, rules in default.default_list.iteritems():
                 if not dp_id in self.datapaths:
                     continue
@@ -63,6 +64,7 @@ class Rerouter(learning_switch.SimpleSwitch13):
                     try:
                         # OUTGOING PACKET FLOWS (SRC PERCEPTION)
                         match = parser.OFPMatch( eth_type=ETH_TYPE_IP,
+                                                 ip_proto=IPPROTO_TCP,
                                                  ipv4_src=rule_set["ipv4_addr_src"],
                                                  ipv4_dst=rule_set["ipv4_addr_dst"],
                                                 )
@@ -77,6 +79,7 @@ class Rerouter(learning_switch.SimpleSwitch13):
 
                         # INCOMING PACKET FLOWS (SRC PERCEPTION)
                         match = parser.OFPMatch( eth_type=ETH_TYPE_IP,
+                                                 ip_proto=IPPROTO_TCP,
                                                  ipv4_src=rule_set["ipv4_addr_fake"],
                                                  ipv4_dst=rule_set["ipv4_addr_src"],
                                                  )
